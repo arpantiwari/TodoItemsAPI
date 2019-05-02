@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo item list</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #0066CC;
+            color: white;
+        }
+
+        td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="caption"></h3>
+    <button onclick="logoff()">Log off</button>
+    <h2>Todo items</h2>
+    <h3>Add Todo item:</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="checkbox" id="add-IsChecked" placeholder="Is Checked">
+        <input type="text" id="add-TaskName" placeholder="Task Name">
+        <input type="text" id="add-Priority" placeholder="Priority">
+        <input type="date" id="add-DueDate" placeholder="Due Date">
+        <input type="text" id="add-Status" placeholder="Status">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="spoiler">
+        <h3>Edit</h3>
+        <form class="my-form">
+            <input type="hidden" id="edit-ID">
+            <input type="checkbox" id="edit-IsChecked">
+            <input type="text" id="edit-TaskName">
+            <input type="text" id="edit-Priority">
+            <input type="date" id="edit-DueDate">
+            <input type="text" id="edit-Status">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Is Checked</th>
+            <th>Task Name</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="todos"></tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="site.js"></script>
+</body>
+</html>
